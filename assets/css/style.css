@@ -1,0 +1,277 @@
+/*=== RESET =========================*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+/*=== VARIABLES =========================*/
+:root {
+    --red-color: #d60223;
+    --medium-red-color: #f89284;
+    --light-red-color: #ffbebe;
+
+    --brown-color: #ebd5d2;
+
+    --blue-color: #0271f7;
+    --medium-blue-color: #d3ffff;
+    --light-blue-color: #8fbff8;
+
+    --light-purple-color: #c2c2f1;
+
+    --light-title-color: #faefd8;
+    --dark-title-color: #f77a2c;
+
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+/*=== GERAL =========================*/
+body {
+    font-family: 'dragon-ball', Courier, monospace;
+    
+    background: #000;
+}
+
+body::before {
+    content: '';
+
+    background-image: url('../img/dbs.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+
+    width: 100%;
+    height:100%;
+    opacity: 0.4;
+}
+
+/*=== MAIN =========================*/
+main {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*=== HEADER =========================*/
+header {
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+}
+
+header .title {
+    color: var(--dark-title-color);
+    -webkit-text-stroke: 2px var(--light-title-color);
+
+    text-transform: uppercase;
+    font-size: 5.2rem; 
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    line-height: 10.2rem;
+}
+
+/*=== CHARACTER SELECTION =========================*/
+.character-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-selection .big-character {
+    text-align: center;
+
+    width: 30%;
+    height: 70vh;
+
+    position: relative;
+}
+
+.character-selection .big-character img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30rem;
+    
+}
+
+.character-selection .big-character .name::before {
+    content: '';
+
+    height: 3rem;
+    width: 100%;
+
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+}
+
+.character-selection .big-character .name h2 {
+    color: #fff;
+
+    font-family: 'dragon-ball-character';
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    font-size: 2.7rem;
+}
+
+.character-selection .big-character.character-player-1 .name::before {
+    background: var(--blue-color);
+    border-radius: 0.5rem;
+}
+
+.character-selection .big-character.character-player-2 .name::before {
+    background: var(--red-color);
+    border-radius: 0.5rem;
+}
+
+.character-selection .character-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+
+    max-width: 60rem;
+}
+
+.character-selection .character-list .character {
+    border: 0.2rem solid #fff;
+    border-radius: 0.5rem;
+    background: #fff;
+
+    width: 30%;
+    height: 16rem;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 2;
+
+    transition: 0.15s ease-in-out;
+}
+
+.character-selection .character-list .character img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 0.5rem;
+}
+
+.character-selection .character-list .character.selected {
+    border: 2px solid var(--medium-blue-color);
+
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+    
+}
+
+.character-selection .character-list .character:hover {
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+    transform: scale(1.07);
+    z-index: 2;
+}
+
+.character-selection .character-list .character.player-2-selected {
+    border: 2px solid var(--light-red-color);
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.player-2-selected:hover {
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character span {
+    display: none;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+
+    color: #fff;
+    
+    transition: opacity .3 ease-in-out;
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.selected span {
+    display: block;
+
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.character-selection .character-list .character.player-2-selected span {
+    display: block;
+
+    animation: text-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+/*=== RESPONSIVE =========================*/
+@media (max-width: 1280px) {
+    header .title {
+        font-size: 4rem;
+    }
+
+    .character-selection .character-list {
+        max-width: 33rem;
+    }
+
+    .character-selection .character-list .character {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+@media (max-width: 767px) {
+    body::before {
+        background-image: url('../img/bg-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+    }
+
+    main {
+        padding: 0 0.5rem;
+
+        justify-content: start;
+    }
+
+    header .title {
+        font-size: 2.2rem;
+    }
+
+    .character-selection .big-character {
+        display: none;
+    }
+}
+
+@media(max-width: 360px) {
+    header .title {
+        font-size: 1.9rem;
+    }
+}
