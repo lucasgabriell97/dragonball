@@ -1,5 +1,5 @@
 <h1 align="center">
-  💻<br>Dragon Ball
+  🥊<br>Dragon Ball
 </h1>
 
 <div align="center">
