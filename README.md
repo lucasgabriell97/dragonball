@@ -10,7 +10,13 @@
 
 ## 📚 Sobre o projeto
 
-Desenvolvido no evento <strong>MAPADEV WEEK</strong>, simula um menu de seleção de personagens semelhante aos jogos de luta, e a minha resolução foi feita com o tema Dragon Ball. 
+Desenvolvido no evento <strong>MAPADEV WEEK</strong>, simula um menu de seleção de personagens semelhante aos jogos de luta. 
+
+💡 <b>Observação</b>: O tema Dragon Ball foi uma escolha pessoal minha, junto com as imagens dos personagens.
+
+## ⚙️ Funcionalidade
+
+☑︎ Altera a imagem do personagem ao passar o mouse por cima no menu.
 
 ## 🛠️ Tecnologias utilizadas
 
